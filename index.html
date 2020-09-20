@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+	<title>COVID-19 Sentiment</title>
+	<!-- <script src='ajas-utils.js'></script> -->
+	<script src='js/jquery-3.3.1.min.js'></script>
+	<script src='js/bootstrap.min.js'></script>
+	<!-- <script src='js/scripts.js'></script> -->
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src='js/Chart.min.js'></script>
+	<script src='js/Chart.bundle.min.js'></script>
+	<script src='js/Chart.js'></script>
+	<!-- <script src='js/socket.io.js'></script> -->
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	<script src="js/datamaps.usa.min.js"></script>
+	<script src="js/papaparse.min.js"></script>
+
+	<!-- jarallax (parallax effect and video backgrounds) -->
+	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax-video.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax-element.min.js"></script>
+
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<link rel='stylesheet' href='css/bootstrap.css'>
+	<link rel='stylesheet' href='css/style.css'>
+
+</head>
+
+<body class='bg-light'>
+	<header>
+		<nav class='navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow'>
+			<a class='navbar-brand col-sm-3 col-md-2 mr-0' href='index.html'>
+				<h2 class='text-white'>
+					<img src='asset/image/logo.png' width='80' height='80' alt='logo'
+						style='padding:0px;margin: 10px 10px 5px 20px !important;'>
+					COVID-19 Sentiment</h2>
+			</a>
+			<form class='form-inline mt-2 mt-md-0'>
+				<input class='form-control mr-sm-2' type='text' placeholder='Search' aria-label='Search'>
+				<button class='btn btn-outline-primary my-2 my-sm-0' type='submit'>Search</button>
+			</form>
+		</nav>
+	</header>
+
+	<div class='jumbotron' style="margin: 110px 0px 0px 0px;">
+		<div class='container'>
+			<h1 id='top' class='display-3'>Hi there!</h1>
+			<p>We visualize the sentiment of tweets posted from all the states in the US and analyze its correlation
+				with daily new cases.</p>
+			<p><a class='btn btn-primary btn-lg' href='#map' role='button'>Learn more &raquo;</a></p>
+		</div>
+	</div>
+
+	<section class="text-light jarallax"
+		data-jarallax-video="https://www.youtube.com/watch?v=Dh2dCWk85Zw&feature=youtu.be" data-video-start-time="0"
+		data-speed="1" style="width: 100vw; height: 800px;margin: 0px 0px 0px 0px">
+		<div class="container">
+			<div class="row min-vh-60 align-items-center">
+				<div class="col text-center">
+					<span class="h1"></span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<br />
+
+	<!-- <h3 class='text-center' style="margin: 20px;">The Latest Sentiment Map (US only)</h3>
+		<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map"></div> -->
+
+	<br /><br /><br /><br />
+	<section>
+		<div>
+			<h3 class='text-center'>Weekly Sentiment Map (US only) of Tweets in March</h3>
+		</div>
+		<div class="row">
+			<div class="col-2"></div>
+			<span class="col-1 carousel-caption d-none d-md-block">
+				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="1" style="height: 30px; width:120px;margin-bottom: 20px;">March 1 - 7</button>
+				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="2" style="height: 30px; width:120px;margin-bottom: 20px;"> March 8 - 14</button>
+				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="3" style="height: 30px; width:120px;margin-bottom: 20px;"> March 15 - 21</button>
+				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="4" style="height: 30px; width:120px;margin-bottom: 20px;"> March 22 - 28</button>
+				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="5" style="height: 30px; width:120px;margin-bottom: 20px;"> March 29 - 31</button>
+			</span>
+			<div class="col-7 container" style="position: relative; width: 1000px; height: 600px;" id="map">
+			</div>
+			<div class="col-2"></div>
+		</div>
+
+		
+		
+	</section>
+	<!-- <section>
+		<div>
+			<h3 class='text-center'>Weekly Sentiment Map (US only) of Tweets in March</h3>
+		</div>
+		<div id='carousel' class='carousel slide' data-ride='carousel'>
+			<ol class='carousel-indicators'>
+				<li data-target='#carousel' data-slide-to='0' class='active'></li>
+				<li data-target='#carousel' data-slide-to='1'></li>
+				<li data-target='#carousel' data-slide-to='2'></li>
+			</ol>
+			<div class='carousel-inner'>
+				<div class='carousel-item active'>
+					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map">
+					</div>
+					<div class='carousel-caption col-lg-12'>
+						<h5 class='text-center'>March 1 - 7</h5>
+					</div>
+				</div>
+				<div class='carousel-item'>
+					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s1">
+					</div>
+					<div class='carousel-caption d-none d-lg-block'>
+						<h5>March 8 - 14</h5>
+					</div>
+				</div>
+				<div class='carousel-item'>
+					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s2">
+					</div>
+					<div class='carousel-caption d-none d-md-block'>
+						<h5>March 15 - 21</h5>
+					</div>
+				</div>
+				<div class='carousel-item'>
+					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s3">
+					</div>
+					<div class='carousel-caption d-none d-md-block'>
+						<h5>March 22 - 31</h5>
+					</div>
+				</div>
+			</div>
+			<a class='carousel-control-prev' href='#carousel' role='button' data-slide='prev'>
+				<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+				<span class='sr-only'>Previous</span>
+			</a>
+			<a class='carousel-control-next' href='#carousel' role='button' data-slide='next'>
+				<span class='carousel-control-next-icon' aria-hidden='true'></span>
+				<span class='sr-only'>Next</span>
+			</a>
+		</div>
+	</section> -->
+
+	<!-- <section>
+				<div>
+					<h3 class='text-center'>Weekly New Cases Map (US only) in March</h3>
+				</div>
+				<div id='carousel_0' class='carousel slide' data-ride='carousel'>
+					<ol class='carousel-indicators'>
+						<li data-target='#carousel_0' data-slide-to='0' class='active'></li>
+						<li data-target='#carousel_0' data-slide-to='1'></li>
+						<li data-target='#carousel_0' data-slide-to='2'></li>
+					</ol>
+					<div class='carousel-inner'>
+						<div class='carousel-item active'>
+							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="">
+							</div>
+							<div class='carousel-caption col-lg-12'>
+								<h5 class='text-center'>March 1 - 7</h5>
+							</div>
+						</div>
+						<div class='carousel-item '>
+							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_2">
+							</div>
+							<div class='carousel-caption d-none d-lg-block'>
+								<h5>March 8 - 14</h5>
+							</div>
+						</div>
+						<div class='carousel-item '>
+							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_3">
+							</div>
+							<div class='carousel-caption d-none d-md-block'>
+								<h5>March 15 - 21</h5>
+							</div>
+						</div>
+						<div class='carousel-item '>
+							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_4">
+							</div>
+							<div class='carousel-caption d-none d-md-block'>
+								<h5>March 22 - 28</h5>
+							</div>
+						</div>
+						<div class='carousel-item'>
+							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_5">
+							</div>
+							<div class='carousel-caption d-none d-md-block'>
+								<h5>March 29 - 31</h5>
+							</div>
+						</div>
+					</div>
+					<a class='carousel-control-prev' href='#carousel_0' role='button' data-slide='prev'>
+						<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+						<span class='sr-only'>Previous</span>
+					</a>
+					<a class='carousel-control-next' href='#carousel_0' role='button' data-slide='next'>
+						<span class='carousel-control-next-icon' aria-hidden='true'></span>
+						<span class='sr-only'>Next</span>
+					</a>
+				</div>
+			</section> -->
+
+	<section>
+		<div>
+			<h3 class='text-center'>Weekly New Cases Map (US only) in March</h3>
+		</div>
+		<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_1">
+		</div>
+		<div class="row">
+			<div class="col-3"></div>
+			<span class="col-6 carousel-caption d-none d-md-block">
+				<button class="btn-secondary" onclick="show_map(this.value)" value="1">March 1 - 7</button>
+				<button class="btn-secondary" onclick="show_map(this.value)" value="2"> March 8 - 14</button>
+				<button class="btn-secondary" onclick="show_map(this.value)" value="3"> March 15 - 21</button>
+				<button class="btn-secondary" onclick="show_map(this.value)" value="4"> March 22 - 28</button>
+				<button class="btn-secondary" onclick="show_map(this.value)" value="5"> March 29 - 31</button>
+			</span>
+			<div class="col-3"></div>
+		</div>
+
+	</section>
+
+
+	<section class="row">
+		<div class="col-lg-5" style="margin: 4vw;">
+			<div>
+				<h4 class='text-center'>Weekly Trends of New Cases and Sentiment of Tweets</h4>
+			</div>
+			<div id='carousel_1' class='carousel slide' data-ride='carousel'>
+				<ol class='carousel-indicators'>
+					<li data-target='#carousel_1' data-slide-to='0' class='active'></li>
+					<li data-target='#carousel_1' data-slide-to='1'></li>
+					<li data-target='#carousel_1' data-slide-to='2'></li>
+				</ol>
+				<div class='carousel-inner'>
+					<div class='carousel-item active'>
+						<canvas id='mylinechart_1' width='50' height='25'></canvas>
+						<div class='carousel-caption col-lg-12'>
+							<h5 class='text-center'>Weekly</h5>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<canvas id='mylinechart_2' width='50' height='25'></canvas>
+						<div class='carousel-caption d-none d-lg-block'>
+							<h5>Monthly</h5>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<canvas id='mylinechart_3' width='50' height='25'></canvas>
+						<div class='carousel-caption d-none d-md-block'>
+							<h5>Annual</h5>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<canvas id='mylinechart_4' width='50' height='25'></canvas>
+						<div class='carousel-caption d-none d-md-block'>
+							<h5>Annual</h5>
+						</div>
+					</div>
+				</div>
+				<a class='carousel-control-prev' href='#carousel_1' role='button' data-slide='prev'>
+					<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+					<span class='sr-only'>Previous</span>
+				</a>
+				<a class='carousel-control-next' href='#carousel_1' role='button' data-slide='next'>
+					<span class='carousel-control-next-icon' aria-hidden='true'></span>
+					<span class='sr-only'>Next</span>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-5" style="margin: 4vw;">
+			<div>
+				<h4 class='text-center'>Correlation between Weekly New Cases and Sentiment of Tweets</h4>
+			</div>
+			<div id='carousel_2' class='carousel slide' data-ride='carousel'>
+				<ol class='carousel-indicators'>
+					<li data-target='#carousel_2' data-slide-to='0' class='active'></li>
+					<li data-target='#carousel_2' data-slide-to='1'></li>
+					<li data-target='#carousel_2' data-slide-to='2'></li>
+				</ol>
+				<div class='carousel-inner'>
+					<div class='carousel-item active'>
+						<canvas id='myscatterchart_1' width='50' height='25'></canvas>
+						<div class='carousel-caption col-lg-12'>
+							<h5 class='text-center'>Weekly</h5>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<canvas id='myscatterchart_2' width='50' height='25'></canvas>
+						<div class='carousel-caption d-none d-lg-block'>
+							<h5>Monthly</h5>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<canvas id='myscatterchart_3' width='50' height='25'></canvas>
+						<div class='carousel-caption d-none d-md-block'>
+							<h5>Annual</h5>
+						</div>
+					</div>
+				</div>
+				<a class='carousel-control-prev' href='#carousel_2' role='button' data-slide='prev'>
+					<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+					<span class='sr-only'>Previous</span>
+				</a>
+				<a class='carousel-control-next' href='#carousel_2' role='button' data-slide='next'>
+					<span class='carousel-control-next-icon' aria-hidden='true'></span>
+					<span class='sr-only'>Next</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	<hr class='featurette-divider'>
+	<footer class='container'>
+		<p class='float-right'><a href='#top'>Back to top</a></p>
+		<p>&copy; 2020 COVID-19 Sentiment &middot; <a href='#'>Privacy</a> &middot; <a href='#'>Terms</a></p>
+	</footer>
+</body>
+<!-- <script type='text/javascript' src='map.js'></script> -->
+<script src="map.js"></script>
+<script type='text/javascript' src="trends_charts.js"></script>
+
+</html>

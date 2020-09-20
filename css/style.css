@@ -1,0 +1,63 @@
+/*style.css*/
+
+header {
+	margin-top: 40px;
+}
+
+.card {
+	margin-top: 100px;
+}
+
+#descrip {
+	margin-top:50px;
+}
+
+
+#holder {
+	margin-top: 43.2px;
+}
+
+#signin {
+	max-width: 500px;
+	margin-top: 131px;
+}
+
+#inputbox {
+	margin-top: -30px;
+}
+
+#submitbutton {
+	margin-top: 25px;
+}
+
+body input{
+	padding:10px;
+}
+
+canvas{
+	padding: 30px;
+}
+
+body form {
+	padding:0px 50px 0px 10px;
+}
+
+#carousel{
+	margin: 20px 100px 20px 100px;
+}
+nav a img{
+	padding: 10px 10px 10px 70px;
+}
+
+.row .container{
+	margin:0 auto;
+}
+
+.jumbotron{
+	margin:0 px;
+}
+
+footer {
+	margin:50px 20px 50px 20px;
+}
+
