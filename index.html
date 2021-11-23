@@ -4,324 +4,193 @@
 <head>
 	<meta charset='UTF-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-	<title>COVID-19 Sentiment</title>
-	<!-- <script src='ajas-utils.js'></script> -->
-	<script src='js/jquery-3.3.1.min.js'></script>
+	<title>Zixian Ma</title>
+	<!-- <script src='js/jquery-3.3.1.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
-	<!-- <script src='js/scripts.js'></script> -->
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src='js/Chart.min.js'></script>
 	<script src='js/Chart.bundle.min.js'></script>
-	<script src='js/Chart.js'></script>
-	<!-- <script src='js/socket.io.js'></script> -->
+	<script src='js/Chart.js'></script> -->
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 	<script src="js/datamaps.usa.min.js"></script>
-	<script src="js/papaparse.min.js"></script>
+	<script src="js/papaparse.min.js"></script> -->
 
 	<!-- jarallax (parallax effect and video backgrounds) -->
-	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax.min.js"></script>
+	<!-- <script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax.min.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax-video.min.js"></script>
-	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax-element.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/jarallax@^1.10.7/dist/jarallax-element.min.js"></script> -->
 
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<link rel='stylesheet' href='css/bootstrap.css'>
-	<link rel='stylesheet' href='css/style.css'>
+	<link rel='stylesheet' href='asset/css/bootstrap.css'>
+	<link rel='stylesheet' href='asset/css/all.css'>
+	<link rel='stylesheet' href='asset/css/style.css'>
 
 </head>
 
 <body class='bg-light'>
 	<header>
-		<nav class='navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow'>
-			<a class='navbar-brand col-sm-3 col-md-2 mr-0' href='index.html'>
-				<h2 class='text-white'>
-					<img src='asset/image/logo.png' width='80' height='80' alt='logo'
-						style='padding:0px;margin: 10px 10px 5px 20px !important;'>
-					COVID-19 Sentiment</h2>
+		<nav class='navbar navbar-light fixed-top bg-light'>
+			<a class='navbar-brand col-sm-3 col-md-2 mt-1 ml-5' href='index.html'>
+				<h2 >Zixian Ma</h2>
 			</a>
-			<form class='form-inline mt-2 mt-md-0'>
-				<input class='form-control mr-sm-2' type='text' placeholder='Search' aria-label='Search'>
-				<button class='btn btn-outline-primary my-2 my-sm-0' type='submit'>Search</button>
-			</form>
+			<ul class="nav justify-content-center">
+				<li class="nav-item">
+					<a class="link-cardinal nav-link" href="asset/pdf/ZixianMa_Nov19_2021.pdf">Resume</a>
+				  </li>
+				<li class="nav-item">
+				  <a class="link-cardinal nav-link" href="#publication">Publication</a>
+				</li>
+				<li class="nav-item">
+					<a class="link-cardinal nav-link" href="#project">Project</a>
+				  </li>
+				<li class="nav-item">
+				  <a class="link-cardinal nav-link" href="#dance">Dance</a>
+				</li>
+				<!-- <li class="nav-item">
+				  <a class="link-cardinal nav-link">Disabled</a>
+				</li> -->
+			  </ul>
 		</nav>
 	</header>
+	<section id="top">
+	<div class='container pt-5'>
+		<div class="row py-5">
+			<div class="col-1"></div>
+		<div class="col-2">
+			<img class="img-fluid rounded-circle" src="asset/image/headshot.jpeg" alt="headshot" >
+			<span class="icon"><a class="text-dark" href="https://www.linkedin.com/in/zixian-ma/" ><i class="fab fa-linkedin mx-2"></i></a></span>
+				<span class="icon"><a class="text-dark" href="https://scholar.google.com/citations?user=0E-IY2IAAAAJ&hl=en&oi=ao"><i class="fas fa-graduation-cap mx-2"></i></a></span>
+				<span class="icon"><a class="text-dark" href="https://github.com/zixianma"><i class="fab fa-github mx-2"></i></a></span>
+		</div>
+		<div class="col-8">
+			<h4 class=''>Computer Science BS and MS @ Stanford University </h4>
+			<h4 class=''>Software Engineering Intern @ Facebook </h4>
+			<div class="row">
+				<p class="text-muted mx-3">zixianma [at] cs.stanford.edu</p>
+				<!-- <span class="icon"><i class="fab fa-linkedin mx-2"></i></span>
+				<span class="icon"><i class="fas fa-graduation-cap mx-2"></i></span>
+				<span class="icon"><i class="fab fa-github mx-2"></i></span> -->
+			</div>
+			<p>I'm a researcher in the <a class="link-cardinal" href="http://svl.stanford.edu/">Stanford Vision and Learning Lab</a> working with <a class="link-cardinal" href="https://ranjaykrishna.com/index.html">Dr. Ranjay Krishna</a> under the supervision of <a class="link-cardinal" href="http://vision.stanford.edu/feifeili/">Prof. Fei-fei Li</a> and <a class="link-cardinal" href="http://hci.stanford.edu/msb/">Prof. Michael Bernstein</a>. 
+				I've had research expereince in adversarial attacks on NLP models and multi-agent collaboration. My current research interests lie in self-supervised learning, vision-language models and human-AI collaboration.</p>
+			<!-- <p><a class='btn btn-primary btn-lg' href='#map' role='button'>Learn more &raquo;</a></p></div> -->
+			
+			<div class="col-1"></div>
+		</div>
+</section>
+	<section class="mx-5 my-3" id="publication">
+	<h3 class="mx-5">Publications</h3>
+	<ul class="list-group list-group-flush mx-5">
+		<li class="list-group-item bg-light">
+			<div class="row">
+				<div class="col-3"><img class="img-fluid" src="asset/image/openattack.png" alt="OpenAttack image"></div>
+				<div class="col-9"><h4 id='top' class=''>Openattack: An open-source textual adversarial attack toolkit</h4>
+					<p>Guoyang Zeng, Fanchao Qi, Qianrui Zhou, Tingji Zhang, Zixian Ma, Bairu Hou, Yuan Zang, Zhiyuan Liu, Maosong Sun</p>
+					<p>ACL2021 Demo</p>
+					<p><a href="https://aclanthology.org/2021.acl-demo.43.pdf">[PDF]</a><a href="https://github.com/thunlp/OpenAttack"> [Code]</a></p>
+			</div>
+		</li>
+		<li class="list-group-item bg-light">
+			<div class="row">
+				<div class="col-3"><img class="img-fluid" src="asset/image/tert.png" alt="Leap"></div>
+				<div class="col-9"><h4 id='top' class=''>Telomerase reverse transcriptase promoter mutations in hepatocellular carcinogenesis</h4>
+					<p>Zi-Xian Ma, Chun-Mei Yang, Meng-Ge Li, Hong Tu</p>
+					<p>Hepatoma Research</p>
+					<p><a href="https://oaepublishstorage.blob.core.windows.net/4db8f98f-1917-4ff8-8963-b88ed36f4aa6/3003.pdf">[PDF]</a></p>
+			</div>
+		</li>
+		<!-- <li class="list-group-item bg-light">A third item</li>
+		<li class="list-group-item bg-light">A fourth item</li>
+		<li class="list-group-item bg-light">And a fifth one</li> -->
+	  </ul>
+	</div>
+	</section>
 
-	<div class='jumbotron' style="margin: 110px 0px 0px 0px;">
-		<div class='container'>
-			<h1 id='top' class='display-3'>Hi there!</h1>
-			<p>We visualize the sentiment of tweets posted from all the states in the US and analyze its correlation
-				with daily new cases.</p>
-			<p><a class='btn btn-primary btn-lg' href='#map' role='button'>Learn more &raquo;</a></p>
+	
+<section class="mx-5 my-5" id="project">
+		<h3 class="mx-5">Projects</h3>
+		<div class="row mx-5">
+		  <div class="col-4">
+			<div class="card mt-3 h-100">
+				<img src="asset/image/sexacademy.png" class="card-img-top" alt="...">
+				<div class="card-body pb-0">
+					<h5 class="card-title">Sex Academy</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Personalized sex education with stories.</h6>
+					<p class="card-text">Sex Academy is a platform that provides a safe and healthy space for students and parents to access customized sex education content recommendations, and peer story-sharing of lived experiences.</p>
+					<a href="https://web.stanford.edu/class/cs147/projects/EducationTechnology/SexAcademy/" class="card-link">Website</a>
+					<a href="https://www.figma.com/proto/zmm8pJoijEg7QLCbP10vXf/Sex-Academy-Med-fi-Prototype?node-id=102%3A9700&scaling=scale-down" class="card-link">Figma</a>
+				  </div>
+			  </div>
+		  </div>
+
+		  <div class="col-4">
+			<div class="card mt-3 h-100">
+				<img src="asset/image/hungry24.png" class="card-img-top" alt="...">
+				<div class="card-body pb-0">
+					<h5 class="card-title">Hungry24</h5>
+					<h6 class="card-subtitle mb-2 text-muted"></h6>
+					<p class="card-text">Hungry24 is a multi-puporse application hosted on Wechat mini-app platform that aims to encourage participants to accept a 24-hour hunger challenge. It's a collaborative fundraising effort with  
+						<a href="https://www.cfpa.org.cn/">China Foundation for Poverty Alleviation</a> to alleviate starvation for Ethiopian children.</p>
+					<a href="https://github.com/zixianma/hungry24" class="card-link">Code</a>
+					<a href="asset/pdf/hungry_24.pdf" class="card-link">PDF</a>
+					<a href="https://mp.weixin.qq.com/s/LwNwhP0-6_4paHag3_qYbw" class="card-link">Article</a>
+
+					
+				  </div>
+			  </div>
+		</div>
+		<div class="col-4">
+			<div class="card mt-3 h-100" >
+				<img src="asset/image/feedme.png" class="card-img-top" alt="...">
+				<div class="card-body pb-0">
+					<h5 class="card-title">FeedMe</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Auto waste classification based on object detection.</h6>
+					<p class="card-text">FeedMe is a smart garbage classification and collection device developed at the <a href="https://xacademy.cc/index-en.html">X Academy</a> 2018 hackathon. 
+						It was ranked the second place and won $10K funding.</p>
+					<a href="https://github.com/zixianma/Feed-Me" class="card-link">Code</a>
+					<a href="asset/pdf/FeedMe_8.15.pdf" class="card-link">PDF</a>
+				  </div>
+			  </div>
+		  </div>
+		</div>
+
+	</section>
+
+<section class="mx-5 my-3" id="dance">
+		<h3 class="mx-5">Dance videos</h3>
+		<div class="container">
+		<div class="row">
+		  <div class="col-6">
+			<div class="ratio ratio-16x9">
+				<iframe src="https://www.youtube.com/embed/MvXeK9cwEVs" title="YouTube video" allowfullscreen></iframe>
+			  </div>
+		  </div>
+		  <div class="col-6">
+			<div class="ratio ratio-16x9">
+				<iframe src="https://www.youtube.com/embed/2AwFT3Q2caM" title="YouTube video" allowfullscreen></iframe>
+			  </div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-6">
+			<div class="ratio ratio-16x9">
+				<iframe src="https://www.youtube.com/embed/I0uMMtoDs78?start=40" title="YouTube video" allowfullscreen></iframe>
+			  </div>
+		  </div>
+		  <div class="col-6">
+			<div class="ratio ratio-16x9">
+				<iframe src="https://www.youtube.com/embed/jPAI9rP0A4Y?" title="YouTube video" allowfullscreen></iframe>
+			  </div>
+		  </div>
 		</div>
 	</div>
-
-	<section class="text-light jarallax"
-		data-jarallax-video="https://www.youtube.com/watch?v=Dh2dCWk85Zw&feature=youtu.be" data-video-start-time="0"
-		data-speed="1" style="width: 100vw; height: 800px;margin: 0px 0px 0px 0px">
-		<div class="container">
-			<div class="row min-vh-60 align-items-center">
-				<div class="col text-center">
-					<span class="h1"></span>
-				</div>
-			</div>
-		</div>
 	</section>
-
-	<br />
-
-	<!-- <h3 class='text-center' style="margin: 20px;">The Latest Sentiment Map (US only)</h3>
-		<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map"></div> -->
-
-	<br /><br /><br /><br />
-	<section>
-		<div>
-			<h3 class='text-center'>Weekly Sentiment Map (US only) of Tweets in March</h3>
-		</div>
-		<div class="row">
-			<div class="col-2"></div>
-			<span class="col-1 carousel-caption d-none d-md-block">
-				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="1" style="height: 30px; width:120px;margin-bottom: 20px;">March 1 - 7</button>
-				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="2" style="height: 30px; width:120px;margin-bottom: 20px;"> March 8 - 14</button>
-				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="3" style="height: 30px; width:120px;margin-bottom: 20px;"> March 15 - 21</button>
-				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="4" style="height: 30px; width:120px;margin-bottom: 20px;"> March 22 - 28</button>
-				<button class="row btn-secondary" onclick="show_s_map(this.value)" value="5" style="height: 30px; width:120px;margin-bottom: 20px;"> March 29 - 31</button>
-			</span>
-			<div class="col-7 container" style="position: relative; width: 1000px; height: 600px;" id="map">
-			</div>
-			<div class="col-2"></div>
-		</div>
-
-		
-		
-	</section>
-	<!-- <section>
-		<div>
-			<h3 class='text-center'>Weekly Sentiment Map (US only) of Tweets in March</h3>
-		</div>
-		<div id='carousel' class='carousel slide' data-ride='carousel'>
-			<ol class='carousel-indicators'>
-				<li data-target='#carousel' data-slide-to='0' class='active'></li>
-				<li data-target='#carousel' data-slide-to='1'></li>
-				<li data-target='#carousel' data-slide-to='2'></li>
-			</ol>
-			<div class='carousel-inner'>
-				<div class='carousel-item active'>
-					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map">
-					</div>
-					<div class='carousel-caption col-lg-12'>
-						<h5 class='text-center'>March 1 - 7</h5>
-					</div>
-				</div>
-				<div class='carousel-item'>
-					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s1">
-					</div>
-					<div class='carousel-caption d-none d-lg-block'>
-						<h5>March 8 - 14</h5>
-					</div>
-				</div>
-				<div class='carousel-item'>
-					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s2">
-					</div>
-					<div class='carousel-caption d-none d-md-block'>
-						<h5>March 15 - 21</h5>
-					</div>
-				</div>
-				<div class='carousel-item'>
-					<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_s3">
-					</div>
-					<div class='carousel-caption d-none d-md-block'>
-						<h5>March 22 - 31</h5>
-					</div>
-				</div>
-			</div>
-			<a class='carousel-control-prev' href='#carousel' role='button' data-slide='prev'>
-				<span class='carousel-control-prev-icon' aria-hidden='true'></span>
-				<span class='sr-only'>Previous</span>
-			</a>
-			<a class='carousel-control-next' href='#carousel' role='button' data-slide='next'>
-				<span class='carousel-control-next-icon' aria-hidden='true'></span>
-				<span class='sr-only'>Next</span>
-			</a>
-		</div>
-	</section> -->
-
-	<!-- <section>
-				<div>
-					<h3 class='text-center'>Weekly New Cases Map (US only) in March</h3>
-				</div>
-				<div id='carousel_0' class='carousel slide' data-ride='carousel'>
-					<ol class='carousel-indicators'>
-						<li data-target='#carousel_0' data-slide-to='0' class='active'></li>
-						<li data-target='#carousel_0' data-slide-to='1'></li>
-						<li data-target='#carousel_0' data-slide-to='2'></li>
-					</ol>
-					<div class='carousel-inner'>
-						<div class='carousel-item active'>
-							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="">
-							</div>
-							<div class='carousel-caption col-lg-12'>
-								<h5 class='text-center'>March 1 - 7</h5>
-							</div>
-						</div>
-						<div class='carousel-item '>
-							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_2">
-							</div>
-							<div class='carousel-caption d-none d-lg-block'>
-								<h5>March 8 - 14</h5>
-							</div>
-						</div>
-						<div class='carousel-item '>
-							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_3">
-							</div>
-							<div class='carousel-caption d-none d-md-block'>
-								<h5>March 15 - 21</h5>
-							</div>
-						</div>
-						<div class='carousel-item '>
-							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_4">
-							</div>
-							<div class='carousel-caption d-none d-md-block'>
-								<h5>March 22 - 28</h5>
-							</div>
-						</div>
-						<div class='carousel-item'>
-							<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_5">
-							</div>
-							<div class='carousel-caption d-none d-md-block'>
-								<h5>March 29 - 31</h5>
-							</div>
-						</div>
-					</div>
-					<a class='carousel-control-prev' href='#carousel_0' role='button' data-slide='prev'>
-						<span class='carousel-control-prev-icon' aria-hidden='true'></span>
-						<span class='sr-only'>Previous</span>
-					</a>
-					<a class='carousel-control-next' href='#carousel_0' role='button' data-slide='next'>
-						<span class='carousel-control-next-icon' aria-hidden='true'></span>
-						<span class='sr-only'>Next</span>
-					</a>
-				</div>
-			</section> -->
-
-	<section>
-		<div>
-			<h3 class='text-center'>Weekly New Cases Map (US only) in March</h3>
-		</div>
-		<div class="container" style="position: relative; width: 1000px; height: 600px;" id="map_1">
-		</div>
-		<div class="row">
-			<div class="col-3"></div>
-			<span class="col-6 carousel-caption d-none d-md-block">
-				<button class="btn-secondary" onclick="show_map(this.value)" value="1">March 1 - 7</button>
-				<button class="btn-secondary" onclick="show_map(this.value)" value="2"> March 8 - 14</button>
-				<button class="btn-secondary" onclick="show_map(this.value)" value="3"> March 15 - 21</button>
-				<button class="btn-secondary" onclick="show_map(this.value)" value="4"> March 22 - 28</button>
-				<button class="btn-secondary" onclick="show_map(this.value)" value="5"> March 29 - 31</button>
-			</span>
-			<div class="col-3"></div>
-		</div>
-
-	</section>
-
-
-	<section class="row">
-		<div class="col-lg-5" style="margin: 4vw;">
-			<div>
-				<h4 class='text-center'>Weekly Trends of New Cases and Sentiment of Tweets</h4>
-			</div>
-			<div id='carousel_1' class='carousel slide' data-ride='carousel'>
-				<ol class='carousel-indicators'>
-					<li data-target='#carousel_1' data-slide-to='0' class='active'></li>
-					<li data-target='#carousel_1' data-slide-to='1'></li>
-					<li data-target='#carousel_1' data-slide-to='2'></li>
-				</ol>
-				<div class='carousel-inner'>
-					<div class='carousel-item active'>
-						<canvas id='mylinechart_1' width='50' height='25'></canvas>
-						<div class='carousel-caption col-lg-12'>
-							<h5 class='text-center'>Weekly</h5>
-						</div>
-					</div>
-					<div class='carousel-item'>
-						<canvas id='mylinechart_2' width='50' height='25'></canvas>
-						<div class='carousel-caption d-none d-lg-block'>
-							<h5>Monthly</h5>
-						</div>
-					</div>
-					<div class='carousel-item'>
-						<canvas id='mylinechart_3' width='50' height='25'></canvas>
-						<div class='carousel-caption d-none d-md-block'>
-							<h5>Annual</h5>
-						</div>
-					</div>
-					<div class='carousel-item'>
-						<canvas id='mylinechart_4' width='50' height='25'></canvas>
-						<div class='carousel-caption d-none d-md-block'>
-							<h5>Annual</h5>
-						</div>
-					</div>
-				</div>
-				<a class='carousel-control-prev' href='#carousel_1' role='button' data-slide='prev'>
-					<span class='carousel-control-prev-icon' aria-hidden='true'></span>
-					<span class='sr-only'>Previous</span>
-				</a>
-				<a class='carousel-control-next' href='#carousel_1' role='button' data-slide='next'>
-					<span class='carousel-control-next-icon' aria-hidden='true'></span>
-					<span class='sr-only'>Next</span>
-				</a>
-			</div>
-		</div>
-		<div class="col-lg-5" style="margin: 4vw;">
-			<div>
-				<h4 class='text-center'>Correlation between Weekly New Cases and Sentiment of Tweets</h4>
-			</div>
-			<div id='carousel_2' class='carousel slide' data-ride='carousel'>
-				<ol class='carousel-indicators'>
-					<li data-target='#carousel_2' data-slide-to='0' class='active'></li>
-					<li data-target='#carousel_2' data-slide-to='1'></li>
-					<li data-target='#carousel_2' data-slide-to='2'></li>
-				</ol>
-				<div class='carousel-inner'>
-					<div class='carousel-item active'>
-						<canvas id='myscatterchart_1' width='50' height='25'></canvas>
-						<div class='carousel-caption col-lg-12'>
-							<h5 class='text-center'>Weekly</h5>
-						</div>
-					</div>
-					<div class='carousel-item'>
-						<canvas id='myscatterchart_2' width='50' height='25'></canvas>
-						<div class='carousel-caption d-none d-lg-block'>
-							<h5>Monthly</h5>
-						</div>
-					</div>
-					<div class='carousel-item'>
-						<canvas id='myscatterchart_3' width='50' height='25'></canvas>
-						<div class='carousel-caption d-none d-md-block'>
-							<h5>Annual</h5>
-						</div>
-					</div>
-				</div>
-				<a class='carousel-control-prev' href='#carousel_2' role='button' data-slide='prev'>
-					<span class='carousel-control-prev-icon' aria-hidden='true'></span>
-					<span class='sr-only'>Previous</span>
-				</a>
-				<a class='carousel-control-next' href='#carousel_2' role='button' data-slide='next'>
-					<span class='carousel-control-next-icon' aria-hidden='true'></span>
-					<span class='sr-only'>Next</span>
-				</a>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
 	<hr class='featurette-divider'>
 	<footer class='container'>
-		<p class='float-right'><a href='#top'>Back to top</a></p>
-		<p>&copy; 2020 COVID-19 Sentiment &middot; <a href='#'>Privacy</a> &middot; <a href='#'>Terms</a></p>
+		<p class='float-right'><a class="link-cardinal" href='#top'>Back to top</a></p>
+		<!-- <p>&copy; 2020 COVID-19 Sentiment &middot; <a href='#'>Privacy</a> &middot; <a href='#'>Terms</a></p> -->
 	</footer>
 </body>
 <!-- <script type='text/javascript' src='map.js'></script> -->
