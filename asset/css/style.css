@@ -70,6 +70,6 @@ footer {
 }
 
 .home-vid {
-	width:32vw; 
-	height: 18vw;
+	width:32vmax; 
+	height: 18vmax;
 }
