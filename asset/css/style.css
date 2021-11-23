@@ -49,9 +49,9 @@ nav a img{
 	padding: 10px 10px 10px 70px;
 }
 
-.row .container{
+/* .row .container{
 	margin:0 auto;
-}
+} */
 
 .jumbotron{
 	margin:0 px;
@@ -67,4 +67,9 @@ footer {
 
 .link-cardinal {
 	color: #8C1515;
+}
+
+.home-vid {
+	width:32vw; 
+	height: 18vw;
 }
