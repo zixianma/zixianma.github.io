@@ -62,7 +62,7 @@ footer {
 }
 
 .icon {
-	font-size: 2rem;
+	font-size: var(--fs-lg);
 }
 
 .link-cardinal {
@@ -72,4 +72,440 @@ footer {
 .home-vid {
 	width:32vmax; 
 	height: 18vmax;
+}
+
+/* Draw only "&" (U+0026) from a standard system sans; Albert Sans's ampersand is unusual */
+@font-face {
+	font-family: "Amp";
+	src: local("Helvetica Neue"), local("HelveticaNeue"), local("Arial"), local("ArialMT"), local("Segoe UI");
+	font-weight: 400 500;
+	unicode-range: U+0026;
+}
+
+@font-face {
+	font-family: "Amp";
+	src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Arial Bold"), local("Arial-BoldMT"), local("Segoe UI Bold");
+	font-weight: 600 700;
+	unicode-range: U+0026;
+}
+
+/* ---------- Palette: neutral text, UW purple for links, Stanford cardinal for honors ---------- */
+:root {
+	--text: #2b2f33;
+	--text-muted: #6c757d;
+	--border: #e3e5e8;
+	--pill-bg: #eceef0;
+	--mat: #eceef1;
+	--link-quiet: #495057;
+	--uw-purple: #6c4fad;       /* brighter UW purple */
+	--uw-purple-dark: #4b2e83;  /* official UW purple, used on hover */
+	--uw-purple-tint: #efeaf8;
+	--cardinal: #b83a4b;        /* Stanford "Cardinal Red Light" */
+	--cardinal-tint: #fbeff1;
+
+	/* Three font sizes for the whole page */
+	--fs-lg: 1.35rem;    /* name, section headings */
+	--fs-md: 1.05rem;    /* subtitle, goal statement, thread headings, paper titles */
+	--fs-base: 0.9375rem; /* everything else (15px) */
+
+	/* Fonts: Albert Sans throughout, with "&" from the system font (see "Amp" above) */
+	--font-heading: "Amp", "Albert Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--font-body: "Amp", "Albert Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+	color: var(--text);
+	/* leave room for the fixed navbar */
+	padding-top: 85px;
+}
+
+@media (max-width: 575px) {
+	body {
+		padding-top: 115px;
+	}
+}
+
+a {
+	color: var(--uw-purple);
+}
+
+a:hover {
+	color: var(--uw-purple-dark);
+}
+
+/* ---------- Type scale ---------- */
+.navbar-brand h2,
+section h3,
+.icon {
+	font-size: var(--fs-lg);
+}
+
+#top h4,
+.research-goal,
+.thread,
+.paper h5 {
+	font-size: var(--fs-md);
+}
+
+.impact,
+.honor,
+.impact-stats .stat-num,
+.thread-desc,
+small,
+.small {
+	font-size: var(--fs-base);
+}
+
+body,
+h4,
+h5 {
+	font-family: var(--font-body);
+}
+
+section h3,
+.navbar-brand h2 {
+	font-family: var(--font-heading);
+	font-weight: 500;
+}
+
+#top h4,
+.research-goal,
+.thread,
+.paper h5 {
+	font-weight: 500;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover {
+	color: var(--text);
+}
+
+.nav-link {
+	color: var(--text);
+}
+
+.nav-link:hover,
+.icon a:hover {
+	color: var(--uw-purple) !important;
+}
+
+/* ---------- Headings ---------- */
+section h3 {
+	padding-bottom: 6px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid var(--border);
+}
+
+.thread {
+	font-weight: 500;
+	margin-top: 2rem;
+	margin-bottom: 0.2rem;
+}
+
+.thread-desc {
+	color: var(--text-muted);
+	margin-bottom: 0.5rem;
+}
+
+/* ---------- Intro ---------- */
+.research-goal {
+	font-weight: 500;
+	border-left: 3px solid var(--uw-purple);
+	padding-left: 12px;
+	margin: 8px 0 16px 0;
+}
+
+.impact-stats {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 2rem;
+	row-gap: 4px;
+	margin-top: 4px;
+}
+
+.impact-stats .stat-num {
+	font-weight: 700;
+}
+
+.impact-stats .stat-label {
+	color: var(--text-muted);
+}
+
+/* ---------- Papers ---------- */
+.paper h5 {
+	font-weight: 500;
+	margin-bottom: 0.4rem;
+}
+
+.paper p {
+	margin-bottom: 0.4rem;
+}
+
+.core {
+	color: var(--cardinal);
+}
+
+/* Shared pill shape for impact numbers and honors */
+.impact,
+.honor {
+	display: inline-block;
+	line-height: 1.5;
+	padding: 1px 9px;
+	margin: 0 0 4px 6px;
+	border-radius: 11px;
+	border: 1px solid transparent;
+	vertical-align: middle;
+}
+
+/* honors lead the venue line, so space them on the right */
+.honor {
+	margin: 0 6px 4px 0;
+}
+
+.impact i,
+.honor i {
+	margin-right: 4px;
+}
+
+/* Impact numbers: all purple-tinted; the headline ones are also bold */
+.impact {
+	background-color: var(--uw-purple-tint);
+	color: var(--uw-purple);
+}
+
+.impact.impact-hl {
+	font-weight: 600;
+}
+
+/* Orals, highlights and awards: cardinal outline */
+.honor {
+	background-color: var(--cardinal-tint);
+	border-color: var(--cardinal);
+	color: var(--cardinal);
+	font-weight: 600;
+}
+
+/* ---------- News, awards, service ---------- */
+.news li {
+	margin-bottom: 4px;
+}
+
+details summary {
+	cursor: pointer;
+	color: var(--uw-purple);
+	margin-left: 1.5rem;
+}
+
+/* keep anchor targets (nav links, paper links in the bio) clear of the fixed navbar */
+section,
+.paper {
+	scroll-margin-top: 90px;
+}
+
+/* Press / adoption line under a paper */
+.press {
+	color: var(--text-muted);
+}
+
+.press i {
+	margin-right: 6px;
+}
+
+a.honor:hover {
+	color: var(--cardinal);
+	text-decoration: none;
+	filter: brightness(0.9);
+}
+
+/* Top panel: fixed-size photo, text takes the rest */
+.intro {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	margin-bottom: 1.25rem;
+}
+
+.headshot {
+	width: 180px;
+	height: 180px;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.intro-text {
+	flex: 1;
+	min-width: 0;
+}
+
+.intro-text .research-goal {
+	margin-bottom: 0;
+	/* split the statement into two even lines instead of leaving one word on the second */
+	text-wrap: balance;
+	max-width: 44rem;
+}
+
+@media (max-width: 767px) {
+	.intro {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.headshot {
+		width: 140px;
+		height: 140px;
+	}
+}
+
+@media (max-width: 575px) {
+	.icon i {
+		margin: 0 0.3rem !important;
+	}
+}
+
+/* X logo (not in Font Awesome 5), sized to match the other icons */
+.x-logo {
+	width: 0.85em;
+	height: 0.85em;
+	vertical-align: -0.05em;
+}
+
+@media (max-width: 575px) {
+	/* email on its own line, icons together underneath */
+	.contact p {
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.contact .icon:first-of-type i,
+	.contact .icon:first-of-type svg {
+		margin-left: 0 !important;
+	}
+
+	/* compact nav links, left-aligned with the name */
+	.nav-link {
+		padding: 0.25rem 0.45rem;
+	}
+
+	.navbar .nav {
+		margin-left: -0.45rem;
+	}
+}
+
+/* ---------- Paper thumbnails: one size and shape ---------- */
+.paper-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+}
+
+.paper-thumb {
+	flex: 0 0 180px;
+	margin-top: 4px;
+	/* soft grey mat so the figures read as a matched set */
+	padding: 8px;
+	background-color: var(--mat);
+	border-radius: 6px;
+}
+
+.paper-thumb img,
+.paper-thumb video {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: contain;
+	border-radius: 3px;
+}
+
+/* the video's still frame is a full-bleed title card, so fill the frame */
+.paper-thumb video {
+	object-fit: cover;
+}
+
+.paper-body {
+	flex: 1;
+	min-width: 0;
+}
+
+@media (max-width: 767px) {
+	.paper-row {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.paper-thumb {
+		flex-basis: auto;
+		width: 100%;
+		max-width: 320px;
+	}
+}
+
+/* Utility links ([Blog] [PDF] ..., press outlets): quiet grey, purple on hover.
+   Purple stays for links inside sentences. */
+.paper-links > a,
+.press a {
+	color: var(--link-quiet);
+}
+
+.paper-links > a:hover,
+.press a:hover {
+	color: var(--uw-purple);
+}
+
+/* Links inside sentences (bio, news, awards, service, legend): text-colored with a
+   faint purple underline, full purple on hover. Keeps the top of the page calm. */
+#top p a,
+#news a,
+#awards a,
+#service a,
+#research > p a {
+	color: var(--text);
+	text-decoration: underline;
+	text-decoration-color: rgba(108, 79, 173, 0.35);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+#top p a:hover,
+#news a:hover,
+#awards a:hover,
+#service a:hover,
+#research > p a:hover {
+	color: var(--uw-purple);
+	text-decoration-color: currentColor;
+}
+
+details summary {
+	color: var(--text-muted);
+}
+
+details summary:hover {
+	color: var(--uw-purple);
+}
+
+/* Fellowships and paper names keep the purple accent (bio, highlights, awards) */
+#top p a.accent,
+#news a.accent,
+#awards a.accent {
+	color: var(--uw-purple);
+	text-decoration: none;
+}
+
+#top p a.accent:hover,
+#news a.accent:hover,
+#awards a.accent:hover {
+	color: var(--uw-purple-dark);
+	text-decoration: underline;
+}
+
+/* Body text at the base size (Bootstrap's default is 1rem) */
+body {
+	font-size: var(--fs-base);
+}
+
+/* Large monitors: let the content column grow a little */
+@media (min-width: 1600px) {
+	.container {
+		max-width: 1240px;
+	}
 }
