@@ -509,3 +509,16 @@ body {
 		max-width: 1240px;
 	}
 }
+
+/* Research-area headings: semibold with the same purple bar as the goal statement */
+h4.thread {
+	font-weight: 600;
+	color: var(--uw-purple);
+	border-left: 3px solid var(--uw-purple);
+	padding-left: 10px;
+	margin-top: 2.25rem;
+}
+
+.thread-desc {
+	padding-left: 13px;
+}
